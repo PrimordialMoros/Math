@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "math-fabric",
+  "version": "${version}",
+  "name": "Math",
+  "description": "Math adapter for Fabric.",
+  "contact": {
+    "homepage": "https://github.com/PrimordialMoros/Math/",
+    "sources": "https://github.com/PrimordialMoros/Math/",
+    "issues": "https://github.com/PrimordialMoros/Math/issues/"
+  },
+  "authors": [
+    "Moros"
+  ],
+  "license": [
+    "GPLv3"
+  ],
+  "environment": "*",
+  "depends": {
+    "fabricloader": ">=0.14.12",
+    "minecraft": ">=1.19.3"
+  }
+}
