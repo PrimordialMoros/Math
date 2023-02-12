@@ -4,5 +4,5 @@ repositories {
 
 dependencies {
     api(project(":math-core"))
-    compileOnly(libs.paper)
+    compileOnly(libs.paper.api)
 }
