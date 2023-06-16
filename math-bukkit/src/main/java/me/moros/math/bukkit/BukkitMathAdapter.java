@@ -24,26 +24,17 @@ import me.moros.math.Vector3d;
 import me.moros.math.Vector3i;
 import me.moros.math.adapter.Adapters;
 import org.bukkit.Location;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.util.Vector;
 
 /**
- * Math adapter for Bukkit {@link Vector vectors}, {@link Location locations} and {@link Block blocks}.
+ * Math adapter for Bukkit.
  */
 public enum BukkitMathAdapter {
   INSTANCE;
 
   public Vector vec(Position p) {
     return new Vector(p.x(), p.y(), p.z());
-  }
-
-  public Location loc(World world, Position p) {
-    return new Location(world, p.x(), p.y(), p.z());
-  }
-
-  public Block block(World world, Position p) {
-    return world.getBlockAt(p.blockX(), p.blockY(), p.blockZ());
   }
 
   public Vector3d fromVec(Vector vec) {
@@ -72,11 +63,11 @@ public enum BukkitMathAdapter {
 
   public static void register() {
     Adapters.vector3d().register(Vector.class, INSTANCE::fromVec, INSTANCE::vec);
-    Adapters.vector3d().register(Location.class, INSTANCE::fromLoc, INSTANCE::loc);
-    Adapters.vector3d().register(Block.class, INSTANCE::fromBlock, INSTANCE::block);
+    Adapters.vector3d().registerAdapter(Location.class, INSTANCE::fromLoc);
+    Adapters.vector3d().registerAdapter(Block.class, INSTANCE::fromBlock);
 
     Adapters.vector3i().register(Vector.class, INSTANCE::intFromVec, INSTANCE::vec);
-    Adapters.vector3i().register(Location.class, INSTANCE::intFromLoc, INSTANCE::loc);
-    Adapters.vector3i().register(Block.class, INSTANCE::intFromBlock, INSTANCE::block);
+    Adapters.vector3i().registerAdapter(Location.class, INSTANCE::intFromLoc);
+    Adapters.vector3i().registerAdapter(Block.class, INSTANCE::intFromBlock);
   }
 }

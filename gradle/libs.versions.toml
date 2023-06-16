@@ -1,11 +1,11 @@
 [versions]
-paper-api = "1.18.2-R0.1-SNAPSHOT"
-minecraft = "1.19.3"
-fabric-loom = "1.1-SNAPSHOT"
-fabric-api = "0.73.2+1.19.3"
-fabric-loader = "0.14.14"
-sponge-api = "10.0.0-SNAPSHOT"
-minestom-api = "aebf72de90"
+paper-api = "1.20.1-R0.1-SNAPSHOT"
+minecraft = "1.20.1"
+fabric-loom = "1.2-SNAPSHOT"
+fabric-api = "0.83.1+1.20.1"
+fabric-loader = "0.14.21"
+sponge-api = "11.0.0-SNAPSHOT"
+minestom-api = "954e8b3915"
 
 [libraries]
 paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-api" }
@@ -17,4 +17,4 @@ minestom-api = { module = "com.github.Minestom.Minestom:Minestom", version.ref =
 
 [plugins]
 fabric-loom = { id = "fabric-loom", version.ref = "fabric-loom" }
-checker = { id = "org.checkerframework", version = "0.6.23" }
+checker = { id = "org.checkerframework", version = "0.6.28" }

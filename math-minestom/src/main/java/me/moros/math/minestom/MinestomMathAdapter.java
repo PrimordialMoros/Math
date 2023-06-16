@@ -26,7 +26,7 @@ import me.moros.math.adapter.Adapters;
 import net.minestom.server.coordinate.Vec;
 
 /**
- * Math adapter for Minestom {@link Vec vectors}.
+ * Math adapter for Minestom.
  */
 public enum MinestomMathAdapter {
   INSTANCE;

@@ -117,18 +117,6 @@ public interface Position {
   }
 
   /**
-   * Create an adapted object from this instance and a parameter.
-   * @param nativeType the type to adapt to
-   * @param param the param to use when adapting
-   * @param <T> the class type
-   * @param <U> the parameter class type
-   * @return the adapted object
-   */
-  default <T, U> T to(Class<T> nativeType, U param) {
-    return adapters().paramConverter(nativeType).convert(param, this);
-  }
-
-  /**
    * Get the position coordinates as a dimension 3 array.
    * @return position coordinates
    */

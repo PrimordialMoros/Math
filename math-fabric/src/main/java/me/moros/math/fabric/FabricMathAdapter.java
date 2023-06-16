@@ -23,13 +23,10 @@ import me.moros.math.Position;
 import me.moros.math.Vector3d;
 import me.moros.math.Vector3i;
 import me.moros.math.adapter.Adapters;
-
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Vec3i;
 import net.minecraft.world.phys.Vec3;
 
 /**
- * Math adapter for Fabric {@link Vec3 real vectors}, {@link Vec3i int vectors} and {@link BlockPos block positions}.
+ * Math adapter for Fabric.
  */
 public enum FabricMathAdapter {
   INSTANCE;
@@ -38,45 +35,17 @@ public enum FabricMathAdapter {
     return new Vec3(p.x(), p.y(), p.z());
   }
 
-  public Vec3i vec3i(Position p) {
-    return new Vec3i(p.blockX(), p.blockY(), p.blockZ());
-  }
-
-  public BlockPos blockPos(Position p) {
-    return new BlockPos(p.blockX(), p.blockY(), p.blockZ());
-  }
-
   public Vector3d fromVec(Vec3 vec) {
     return Vector3d.of(vec.x(), vec.y(), vec.z());
-  }
-
-  public Vector3d fromVec3i(Vec3i vec) {
-    return Vector3d.of(vec.getX(), vec.getY(), vec.getZ());
-  }
-
-  public Vector3d fromBlockPos(BlockPos blockPos) {
-    return Vector3d.of(blockPos.getX(), blockPos.getY(), blockPos.getZ());
   }
 
   public Vector3i intFromVec(Vec3 vec) {
     return Vector3i.of(vec.x(), vec.y(), vec.z());
   }
 
-  public Vector3i intFromVec3i(Vec3i vec) {
-    return Vector3i.of(vec.getX(), vec.getY(), vec.getZ());
-  }
-
-  public Vector3i intFromBlockPos(BlockPos blockPos) {
-    return Vector3i.of(blockPos.getX(), blockPos.getY(), blockPos.getZ());
-  }
-
   public static void register() {
     Adapters.vector3d().register(Vec3.class, INSTANCE::fromVec, INSTANCE::vec);
-    Adapters.vector3d().register(Vec3i.class, INSTANCE::fromVec3i, INSTANCE::vec3i);
-    Adapters.vector3d().register(BlockPos.class, INSTANCE::fromBlockPos, INSTANCE::blockPos);
 
     Adapters.vector3i().register(Vec3.class, INSTANCE::intFromVec, INSTANCE::vec);
-    Adapters.vector3i().register(Vec3i.class, INSTANCE::intFromVec3i, INSTANCE::vec3i);
-    Adapters.vector3i().register(BlockPos.class, INSTANCE::intFromBlockPos, INSTANCE::blockPos);
   }
 }

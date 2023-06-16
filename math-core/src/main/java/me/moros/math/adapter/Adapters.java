@@ -34,7 +34,6 @@ public final class Adapters<E extends Position> {
 
   private final Map<Class<?>, Adapter<?, E>> ADAPTERS = new HashMap<>();
   private final Map<Class<?>, Converter<?>> CONVERTERS = new HashMap<>();
-  private final Map<Class<?>, ParamConverter<?, ?>> PARAM_CONVERTERS = new HashMap<>();
 
   private Adapters() {
   }
@@ -47,18 +46,9 @@ public final class Adapters<E extends Position> {
     CONVERTERS.put(nativeType, converter);
   }
 
-  public <T, U> void registerParamConverter(Class<T> nativeType, ParamConverter<T, U> converter) {
-    PARAM_CONVERTERS.put(nativeType, converter);
-  }
-
   public <T> void register(Class<T> nativeType, Adapter<T, E> adapter, Converter<T> converter) {
     registerAdapter(nativeType, adapter);
     registerConverter(nativeType, converter);
-  }
-
-  public <T, U> void register(Class<T> nativeType, Adapter<T, E> adapter, ParamConverter<T, U> converter) {
-    registerAdapter(nativeType, adapter);
-    registerParamConverter(nativeType, converter);
   }
 
   public <T> E adapt(T object) {
@@ -81,10 +71,6 @@ public final class Adapters<E extends Position> {
 
   public <T> Converter<T> converter(Class<T> nativeType) {
     return (Converter<T>) getConverter(CONVERTERS, nativeType);
-  }
-
-  public <T, U> ParamConverter<T, U> paramConverter(Class<T> nativeType) {
-    return (ParamConverter<T, U>) getConverter(PARAM_CONVERTERS, nativeType);
   }
 
   private Object getConverter(Map<Class<?>, ?> map, Class<?> nativeType) {
