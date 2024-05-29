@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-2023 Moros
+ * Copyright 2020-2024 Moros
  *
  * This file is part of Math.
  *
@@ -198,7 +198,7 @@ public final class VectorUtil {
    */
   public static Vector3d closestPoint(Vector3d start, Vector3d end, Vector3d target) {
     Vector3d toEnd = end.subtract(start);
-    double t = FastMath.clamp(target.subtract(start).dot(toEnd) / toEnd.dot(toEnd), 0, 1);
+    double t = Math.clamp(target.subtract(start).dot(toEnd) / toEnd.dot(toEnd), 0, 1);
     return start.add(toEnd.multiply(t));
   }
 
@@ -225,15 +225,15 @@ public final class VectorUtil {
   public static Collection<Vector3i> decomposeDiagonals(Vector3d origin, Vector3d direction) {
     Vector3i temp = origin.add(direction).toVector3i().subtract(origin.toVector3i());
     Collection<Vector3i> possibleCollisions = new ArrayList<>(3);
-    int delta = FastMath.clamp(temp.blockX(), -1, 1);
+    int delta = Math.clamp(temp.blockX(), -1, 1);
     if (delta != 0) {
       possibleCollisions.add(Vector3i.of(delta, 0, 0));
     }
-    delta = FastMath.clamp(temp.blockY(), -1, 1);
+    delta = Math.clamp(temp.blockY(), -1, 1);
     if (delta != 0) {
       possibleCollisions.add(Vector3i.of(0, delta, 0));
     }
-    delta = FastMath.clamp(temp.blockZ(), -1, 1);
+    delta = Math.clamp(temp.blockZ(), -1, 1);
     if (delta != 0) {
       possibleCollisions.add(Vector3i.of(0, 0, delta));
     }

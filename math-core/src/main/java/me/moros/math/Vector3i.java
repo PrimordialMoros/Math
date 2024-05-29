@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-2023 Moros
+ * Copyright 2020-2024 Moros
  *
  * This file is part of Math.
  *
@@ -123,9 +123,9 @@ public interface Vector3i extends VectorOperations<Vector3i> {
 
   @Override
   default Vector3i clampVelocity() {
-    int clampedX = FastMath.clamp(blockX(), -4, 4);
-    int clampedY = FastMath.clamp(blockY(), -4, 4);
-    int clampedZ = FastMath.clamp(blockZ(), -4, 4);
+    int clampedX = Math.clamp(blockX(), -4, 4);
+    int clampedY = Math.clamp(blockY(), -4, 4);
+    int clampedZ = Math.clamp(blockZ(), -4, 4);
     return of(clampedX, clampedY, clampedZ);
   }
 

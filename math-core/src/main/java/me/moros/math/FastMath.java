@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-2023 Moros
+ * Copyright 2020-2024 Moros
  *
  * This file is part of Math.
  *
@@ -53,49 +53,5 @@ public final class FastMath {
    */
   public static int round(double value) {
     return floor(value + 0.5);
-  }
-
-  /**
-   * Clamp value between bounds.
-   * @param value the value to clamp
-   * @param min the minimum value
-   * @param max the maximum value
-   * @return the result
-   */
-  public static int clamp(int value, int min, int max) {
-    return Math.min(max, Math.max(min, value));
-  }
-
-  /**
-   * Clamp value between bounds.
-   * @param value the value to clamp
-   * @param min the minimum value
-   * @param max the maximum value
-   * @return the result
-   */
-  public static long clamp(long value, long min, long max) {
-    return Math.min(max, Math.max(min, value));
-  }
-
-  /**
-   * Clamp value between bounds.
-   * @param value the value to clamp
-   * @param min the minimum value
-   * @param max the maximum value
-   * @return the result
-   */
-  public static float clamp(float value, float min, float max) {
-    return Math.min(max, Math.max(min, value));
-  }
-
-  /**
-   * Clamp value between bounds.
-   * @param value the value to clamp
-   * @param min the minimum value
-   * @param max the maximum value
-   * @return the result
-   */
-  public static double clamp(double value, double min, double max) {
-    return Math.min(max, Math.max(min, value));
   }
 }

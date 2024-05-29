@@ -1,11 +1,12 @@
 [versions]
-paper-api = "1.20.1-R0.1-SNAPSHOT"
-minecraft = "1.20.1"
-fabric-loom = "1.2-SNAPSHOT"
-fabric-api = "0.83.1+1.20.1"
-fabric-loader = "0.14.21"
+paper-api = "1.20.6-R0.1-SNAPSHOT"
+minecraft = "1.20.6"
+fabric-loom = "1.6.9"
+fabric-api = "0.99.0+1.20.6"
+fabric-loader = "0.15.11"
 sponge-api = "11.0.0-SNAPSHOT"
-minestom-api = "954e8b3915"
+minestom-api = "1_20_5-fe4400bc3e"
+checker = "0.6.39"
 
 [libraries]
 paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper-api" }
@@ -13,8 +14,8 @@ fabric-minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" 
 fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric-api" }
 fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
 sponge-api = { module = "org.spongepowered:spongeapi", version.ref = "sponge-api" }
-minestom-api = { module = "com.github.Minestom.Minestom:Minestom", version.ref = "minestom-api" }
+minestom-api = { module = "net.minestom:minestom-snapshots", version.ref = "minestom-api" }
 
 [plugins]
 fabric-loom = { id = "fabric-loom", version.ref = "fabric-loom" }
-checker = { id = "org.checkerframework", version = "0.6.28" }
+checker = { id = "org.checkerframework", version.ref = "checker" }

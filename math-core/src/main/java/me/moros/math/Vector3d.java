@@ -1,5 +1,5 @@
 /*
- * Copyright 2020-2023 Moros
+ * Copyright 2020-2024 Moros
  *
  * This file is part of Math.
  *
@@ -123,9 +123,9 @@ public interface Vector3d extends VectorOperations<Vector3d> {
 
   @Override
   default Vector3d clampVelocity() {
-    double clampedX = FastMath.clamp(x(), -4, 4);
-    double clampedY = FastMath.clamp(y(), -4, 4);
-    double clampedZ = FastMath.clamp(z(), -4, 4);
+    double clampedX = Math.clamp(x(), -4, 4);
+    double clampedY = Math.clamp(y(), -4, 4);
+    double clampedZ = Math.clamp(z(), -4, 4);
     return of(clampedX, clampedY, clampedZ);
   }
 

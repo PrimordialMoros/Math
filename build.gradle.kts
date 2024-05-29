@@ -7,7 +7,7 @@ plugins {
 
 allprojects {
     group = "me.moros"
-    version = "2.0.0"
+    version = "3.0.0"
 
     apply(plugin = "java-library")
     apply(plugin = "org.checkerframework")
@@ -17,7 +17,7 @@ allprojects {
     }
 
     configure<JavaPluginExtension> {
-        toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+        toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     }
 
     tasks {
@@ -30,8 +30,8 @@ allprojects {
             isReproducibleFileOrder = true
         }
         named<Copy>("processResources") {
-            from("$rootDir/LICENSE") {
-                rename { "${rootProject.name.uppercase()}_${it}" }
+            from(rootProject.file("LICENSE")) {
+                rename { "META-INF/${it}_${rootProject.name.uppercase()}" }
             }
         }
     }
@@ -64,6 +64,7 @@ subprojects {
                     license {
                         name.set("The GNU General Public License, Version 3.0")
                         url.set("https://www.gnu.org/licenses/gpl-3.0.txt")
+                        distribution.set("repo")
                     }
                 }
                 developers {
@@ -83,20 +84,16 @@ subprojects {
                 }
             }
         }
-        if (project.hasProperty("ossrhUsername") && project.hasProperty("ossrhPassword")) {
-            val user = project.property("ossrhUsername") as String?
-            val pass = project.property("ossrhPassword") as String?
+        repositories {
             val snapshotUrl = uri("https://oss.sonatype.org/content/repositories/snapshots/")
             val releaseUrl = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
-            repositories {
-                maven {
-                    credentials { username = user; password = pass }
-                    url = if (isSnapshot()) snapshotUrl else releaseUrl
-                }
+            maven {
+                name = "sonatype"
+                credentials(PasswordCredentials::class)
+                url = if (isSnapshot()) snapshotUrl else releaseUrl
             }
         }
     }
-
     signing {
         sign(publishing.publications["maven"])
     }
