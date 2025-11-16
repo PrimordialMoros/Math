@@ -9,7 +9,7 @@ plugins {
 
 allprojects {
     group = "me.moros"
-    version = "4.0.0"
+    version = "4.0.0-SNAPSHOT"
 
     apply(plugin = "java-library")
 
@@ -46,7 +46,7 @@ subprojects {
     mavenPublishing {
         pom {
             name = project.name
-            description = "TImmutable vector and math library for minecraft."
+            description = "Immutable vector and math library for minecraft."
             url = "https://github.com/PrimordialMoros/math"
             inceptionYear = "2020"
             licenses {
