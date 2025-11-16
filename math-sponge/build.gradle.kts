@@ -3,6 +3,6 @@ repositories {
 }
 
 dependencies {
-    api(project(":math-core"))
+    api(projects.mathCore)
     compileOnly(libs.sponge.api)
 }

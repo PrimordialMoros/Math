@@ -25,7 +25,7 @@ import java.util.Map;
 import me.moros.math.Position;
 import me.moros.math.Vector3d;
 import me.moros.math.Vector3i;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.jspecify.annotations.Nullable;
 
 @SuppressWarnings("unchecked")
 public final class Adapters<E extends Position> {

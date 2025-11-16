@@ -1,3 +1,5 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         gradlePluginPortal()
@@ -6,8 +8,9 @@ pluginManagement {
 }
 
 rootProject.name = "math"
+
 include("math-core")
-include("math-bukkit")
+include("math-paper")
 include("math-sponge")
 include("math-fabric")
 include("math-minestom")
