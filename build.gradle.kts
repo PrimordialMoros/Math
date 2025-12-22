@@ -9,7 +9,7 @@ plugins {
 
 allprojects {
     group = "me.moros"
-    version = "4.0.0-SNAPSHOT"
+    version = "4.0.0"
 
     apply(plugin = "java-library")
 
